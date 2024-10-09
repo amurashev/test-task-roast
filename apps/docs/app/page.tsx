@@ -1,9 +1,3 @@
-import { Button } from "@repo/ui/components/ui/button";
+import PhotoAppPage from '~/src/photo-app'
 
-export default function Page() {
-  return (
-    <main>
-      <Button>Click me</Button>
-    </main>
-  );
-}
+export default PhotoAppPage

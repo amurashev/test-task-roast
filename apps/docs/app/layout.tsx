@@ -1,8 +1,8 @@
 import "@repo/ui/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = IBM_Plex_Sans({ subsets: ["latin"], weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
   title: "Docs",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
