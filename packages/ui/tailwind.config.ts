@@ -69,6 +69,10 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "bar-move": {
+          from: { top: "30%" },
+          to: { top: "70%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

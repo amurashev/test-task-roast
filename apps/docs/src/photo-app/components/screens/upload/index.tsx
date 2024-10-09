@@ -34,7 +34,7 @@ export default function UploadScreen({
 
   return (
     <div className="relative h-full w-full flex flex-col">
-      <div className="w-full flex-grow flex flex-col items-center text-left px-6 py-4 pt-8 z-10">
+      <div className="w-full flex flex-col items-center text-left px-6 py-4 pt-8 z-10">
         <div className="space-y-2">
           <div className="uppercase font-bold text-4xl">
             {t(messages.header)}
@@ -49,6 +49,9 @@ export default function UploadScreen({
           alt="AI generated photo"
           width={356}
           height={470}
+          style={{
+            objectFit: "contain"
+          }}
           className="w-full"
         />
       </div>
@@ -63,7 +66,7 @@ export default function UploadScreen({
         className="w-full h-full hidden"
       />
 
-      <div className="px-4 w-full pb-4  z-10">
+      <div className="fixed bottom-0 left-0 right-0 px-4 w-full pb-4 z-10">
         <Button
           onClick={(e) => {
             e.preventDefault();
