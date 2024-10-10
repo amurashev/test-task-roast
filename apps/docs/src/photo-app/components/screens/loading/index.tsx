@@ -7,6 +7,8 @@ import messages from "./messages";
 
 import type { TempImage } from "~/src/photo-app/types";
 
+const TEMP_TIMEOUT_DELAY = 2000;
+
 export default function LoadingScreen({
   images,
   onFinish,
@@ -19,9 +21,8 @@ export default function LoadingScreen({
   const firstImage = images[0];
 
   useEffect(() => {
-    setTimeout(() => {
-      onFinish();
-    }, 2000);
+    const timer = setTimeout(() => onFinish(), TEMP_TIMEOUT_DELAY);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
