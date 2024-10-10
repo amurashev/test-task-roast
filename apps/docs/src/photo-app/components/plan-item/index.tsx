@@ -38,7 +38,7 @@ export default function PlanItem({
       <div className="flex items-center space-x-3">
         <div
           className={cn(
-            "w-[24px] h-[24px] border-2 border-border rounded-full flex items-center justify-center",
+            "w-[24px] h-[24px] border-2 border-border rounded-full flex-shrink-0 flex items-center justify-center",
             {
               "border-[#3C474E]": !isSelected,
               "border-[#FF9518]": isSelected,

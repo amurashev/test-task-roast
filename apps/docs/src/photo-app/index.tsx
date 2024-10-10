@@ -1,73 +1,38 @@
-"use client";
+import Controller from "./controller";
 
-import { useState } from "react";
+import type { Plan } from "./types";
 
-import Layout from "./components/layout";
-import IntroScreen from "./components/screens/intro";
-import UploadScreen from "./components/screens/upload";
-import LoadingScreen from "./components/screens/loading";
-import PaywallScreen from "./components/screens/paywall";
-
-import { PLANS, STEPS_FLOW } from "./constants";
-
-import type { Screen, TempImage } from "./types";
+// Just imagine it is from API
+export const plans: Plan[] = [
+  {
+    id: "1",
+    title: "10 Raw AI DATING Photos",
+    price: 29,
+    oldPrice: 49,
+    features: [],
+  },
+  {
+    id: "2",
+    title: "40 Raw AI DATING Photos",
+    price: 39,
+    oldPrice: 69,
+    isPopular: true,
+    features: [],
+  },
+  {
+    id: "3",
+    title: "10 CURATED Edited AI Photos",
+    price: 249,
+    oldPrice: 500,
+    isBest: true,
+    features: [
+      "Unlimited Generations",
+      "Handpicked Photos",
+      "Manual Editing by Experts",
+    ],
+  },
+];
 
 export default function PhotoAppPage() {
-  const [screen, setScreen] = useState<Screen>(STEPS_FLOW[0] as Screen);
-  const [tempImages, setTempImages] = useState<TempImage[]>([]);
-
-  const hasHeader = ["upload", "paywall"].includes(screen);
-  const hasProgress = ["upload"].includes(screen);
-  const hasOffer = ["paywall"].includes(screen);
-  const stepIndex = STEPS_FLOW.indexOf(screen);
-  const progress = stepIndex;
-
-  const plans = PLANS; // Just imagine it is from API
-
-  return (
-    <Layout
-      hasHeader={hasHeader}
-      hasProgress={hasProgress}
-      hasOffer={hasOffer}
-      progress={progress}
-      onBackClick={() => {
-        setScreen(STEPS_FLOW[0] as Screen);
-      }}
-      onCloseClick={() => {
-        // There is no spec for this button
-      }}
-    >
-      {screen === "intro" && (
-        <IntroScreen
-          onCTAClick={() => {
-            setScreen("upload");
-          }}
-        />
-      )}
-      {screen === "upload" && (
-        <UploadScreen
-          onFinish={(images) => {
-            setTempImages(images);
-            setScreen("loading");
-          }}
-        />
-      )}
-      {screen === "loading" && (
-        <LoadingScreen
-          images={tempImages}
-          onFinish={() => {
-            setScreen("paywall");
-          }}
-        />
-      )}
-      {screen === "paywall" && (
-        <PaywallScreen
-          plans={plans}
-          onCTAClick={() => {
-            // There is no spec for this button
-          }}
-        />
-      )}
-    </Layout>
-  );
+  return <Controller plans={plans} />;
 }
