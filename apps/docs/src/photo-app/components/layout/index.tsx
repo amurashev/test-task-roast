@@ -4,6 +4,7 @@ import { Progress } from "@repo/ui/components/ui/progress";
 
 import Header from "../header";
 import Offer from "../offer";
+import { STEPS_FLOW } from "../../constants";
 
 export default function Layout({
   children,
@@ -22,12 +23,14 @@ export default function Layout({
   onBackClick: () => void;
   onCloseClick: () => void;
 }) {
+  const progressFixed = progress * (100 / STEPS_FLOW.length);
+
   return (
     <div className="bg-foreground text-white h-[100vh] flex flex-col overflow-hidden">
       {hasHeader && (
         <Header onBackClick={onBackClick} onCloseClick={onCloseClick} />
       )}
-      {hasProgress && <Progress value={progress * 25} />}
+      {hasProgress && <Progress value={progressFixed} />}
       {hasOffer && <Offer />}
       <div className="h-full flex-grow">{children}</div>
     </div>

@@ -50,7 +50,7 @@ export default function UploadScreen({
           width={356}
           height={470}
           style={{
-            objectFit: "contain"
+            objectFit: "contain",
           }}
           className="w-full"
         />

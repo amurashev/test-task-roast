@@ -1,3 +1,3 @@
-import { Plan, Screen } from "./types";
+import { Screen } from "./types";
 
 export const STEPS_FLOW: Screen[] = ["intro", "upload", "loading", "paywall"];
