@@ -1,12 +1,35 @@
 import { CheckIcon } from "@radix-ui/react-icons";
 
 import { Plan } from "~/src/photo-app/types";
+import Price from "@repo/ui/components/l18n/price";
 
 import { cn } from "~/utils/styles";
 import useTranslate from "~/hooks/use-translate";
 
 import messages from "./messages";
-import Price from "@repo/ui/components/l18n/price";
+
+function Tag({
+  text,
+  type = "regular",
+}: {
+  text: string;
+  type: "regular" | "active";
+}) {
+  return (
+    <div
+      className={cn(
+        "absolute top-0 translate-y-[-50%] right-4 p-1 px-2 text-primary rounded-lg font-bold",
+        {
+          "bg-gradient-to-r from-[#FF6B18] to-[#EF4014] p-1 px-2 text-white":
+            type === "active",
+          "bg-white": type === "regular",
+        },
+      )}
+    >
+      {text}
+    </div>
+  );
+}
 
 export default function PlanItem({
   item,
@@ -26,16 +49,9 @@ export default function PlanItem({
       })}
       onClick={onClick}
     >
-      {item.isPopular && (
-        <div className="absolute top-0 translate-y-[-50%] right-4 bg-white p-1 px-2 text-primary rounded-lg font-bold">
-          {t(messages.mostPopular)}
-        </div>
-      )}
-      {item.isBest && (
-        <div className="absolute top-0 translate-y-[-50%] right-4 bg-gradient-to-r from-[#FF6B18] to-[#EF4014] p-1 px-2 text-white rounded-lg font-bold">
-          {t(messages.best)}
-        </div>
-      )}
+      {item.isPopular && <Tag type="regular" text={t(messages.mostPopular)} />}
+      {item.isBest && <Tag type="active" text={t(messages.best)} />}
+
       <div className="flex items-center space-x-3">
         <div
           className={cn(
