@@ -6,6 +6,7 @@ import { cn } from "~/utils/styles";
 import useTranslate from "~/hooks/use-translate";
 
 import messages from "./messages";
+import Price from "@repo/ui/components/l18n/price";
 
 export default function PlanItem({
   item,
@@ -60,10 +61,12 @@ export default function PlanItem({
                 "text-[#BE7B4D]": isSelected,
               })}
             >
-              {item.oldPrice}$
+              <Price value={item.oldPrice} />
             </div>
           )}
-          <div className="uppercase font-semibold text-xl">{item.price}$</div>
+          <div className="uppercase font-semibold text-xl">
+            <Price value={item.price} />
+          </div>
         </div>
       </div>
 
