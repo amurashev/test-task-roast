@@ -46,6 +46,8 @@ const config = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        "accent-gradient-to": "hsl(var(--accent-gradient-to))",
+        "accent-gradient-to-light": "hsl(var(--accent-gradient-to-light))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

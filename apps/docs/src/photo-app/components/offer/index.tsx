@@ -41,7 +41,7 @@ export default function Offer() {
   const buyers = 69;
 
   return (
-    <div className="bg-gradient-to-r from-[#FF6B18] to-[#EF4014] px-2 py-2 text-white flex items-center justify-between">
+    <div className="bg-gradient-to-r from-accent to-accent-gradient-to-light px-2 py-2 text-white flex items-center justify-between">
       <div className="uppercase text-base font-semibold">
         {discount}% Off → first {buyers} buyers today! 
       </div>

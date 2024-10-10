@@ -20,7 +20,7 @@ function Tag({
       className={cn(
         "absolute top-0 translate-y-[-50%] right-4 p-1 px-2 text-primary rounded-lg font-bold",
         {
-          "bg-gradient-to-r from-[#FF6B18] to-[#EF4014] p-1 px-2 text-white":
+          "bg-gradient-to-r from-accent to-accent-gradient-to-light p-1 px-2 text-white":
             type === "active",
           "bg-white": type === "regular",
         },
@@ -45,7 +45,7 @@ export default function PlanItem({
     <div
       className={cn("relative p-6 rounded-2xl w-full cursor-pointer", {
         "border-[rgb(60,71,78)] border bg-[#2E3438]": !isSelected,
-        "border-[#FF9518] border-2 bg-[#450C05]": isSelected,
+        "border-accent border-2 bg-[#450C05]": isSelected,
       })}
       onClick={onClick}
     >
@@ -58,7 +58,7 @@ export default function PlanItem({
             "w-[24px] h-[24px] border-2 border-border rounded-full flex-shrink-0 flex items-center justify-center",
             {
               "border-[#3C474E]": !isSelected,
-              "border-[#FF9518]": isSelected,
+              "border-accent": isSelected,
             },
           )}
         >
